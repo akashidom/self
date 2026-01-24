@@ -41,6 +41,7 @@
   </style>
 </head>
 <body>
+  <audio id='intro' src="../sounds/pedophiles.mp3"></audio>
   <div id="hate-pedo">
     <img src="../images/pedophiles.jpeg" alt="Jeffrey Epstein" />
   <h1>I hate Pedophiles.</h1>
@@ -50,6 +51,9 @@
         const meme = document.getElementById('hate-pedo');
         meme.style.opacity = 1;
       }, 50)
+      
+      const intro = document.getElementById('intro');
+      intro.play();
     }
     //startEvent();
   </script>
