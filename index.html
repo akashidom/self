@@ -10,7 +10,6 @@
       margin: 0;
     }
 
-
     #iframes {
       display: flex;
       flex-direction: column;
@@ -50,21 +49,23 @@
   </div>
   <script>
     const container = document.getElementById('iframes');
-    let scrolling;
+    let isScrolling,
+    lastIframe = 0;
 
     container.addEventListener('scroll', () => {
-      clearTimeout(scrolling);
+      clearTimeout(isScrolling);
 
-      scrolling = setTimeout(() => {
+      isScrolling = setTimeout(() => {
         const iframes = Array.from(container.querySelectorAll('iframe')),
         index = Math.round(container.scrollTop / container.clientHeight),
         iframe = iframes[index];
 
         if (iframe && iframe.contentWindow) {
-          if (typeof iframe.contentWindow.startEvent === 'function') {
+          if (typeof iframe.contentWindow.startEvent === 'function' && lastIframe !== index) {
             iframe.contentWindow.startEvent();
           }
         }
+        lastIframe = index;
       },
         100);
     });
