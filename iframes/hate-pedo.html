@@ -33,12 +33,26 @@
 
       width: 90%;
     }
+    
+    #hate-pedo {
+      opacity: 0;
+      transition: opacity 4s ease-in-out;
+    }
   </style>
 </head>
 <body>
   <div id="hate-pedo">
     <img src="../images/pedophiles.jpeg" alt="Jeffrey Epstein" />
   <h1>I hate Pedophiles.</h1>
+  <script type="text/javascript" charset="utf-8">
+    function startEvent() {
+      setTimeout(() => {
+        const meme = document.getElementById('hate-pedo');
+        meme.style.opacity = 1;
+      }, 50)
+    }
+    //startEvent();
+  </script>
 </div>
 </body>
 </html>
