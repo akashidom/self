@@ -38,57 +38,82 @@
       border: none;
     }
   </style>
-</head>
-<body>
-  <div id="loading">
-    <img src="gifs/nyan-cat.gif" alt="nyancat" class="bounce">
-    <img src="gifs/bopping-cat.gif" alt="" class="bounce">
-    <img src="gifs/smol-cat.webp" alt="" class="bounce">
-    <img src="gifs/cat-dancing.webp" alt="" class="bounce">
-    <img src="gifs/pop-cat.webp" alt="" class="bounce">
-    <img src="gifs/chips-cat.webp" alt="" class="bounce">
-  </div>
-  <div id="iframes">
-    <iframe src="iframes/intro.html" frameborder="0"></iframe>
-    <iframe src="iframes/hobbies.html" frameborder="0"></iframe>
-    <iframe src="iframes/interest-persona.html" frameborder="0"></iframe>
-    <iframe src="iframes/interest-vocaloid.html" frameborder="0"></iframe>
-    <iframe src="iframes/interest-brs.html" frameborder="0"></iframe>
-    <iframe src="iframes/hate.html" frameborder="0"></iframe>
-    <iframe src="iframes/hate-pedo.html" frameborder="0"></iframe>
-    <iframe src="iframes/hate-haircut1.html" frameborder="0"></iframe>
-    <iframe src="iframes/hate-haircut2.html" frameborder="0"></iframe>
-    <iframe src="iframes/ambitions.html" frameborder="0"></iframe>
-    <iframe src="iframes/end.html" frameborder="0"></iframe>
-    <iframe src="iframes/graffiti.html" frameborder="0"></iframe>
-  </div>
-  <script>
-    const container = document.getElementById('iframes');
-    let isScrolling,
-    lastIframe = 0;
+  <noscript>
+    <style type="text/css" media="all">
+      #loading {
+        display: none;
+      }
 
-    container.addEventListener('scroll', () => {
-      clearTimeout(isScrolling);
+      #iframes {
+        display: flex;
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div id="loading">
+      <img src="gifs/nyan-cat.gif" alt="nyancat" class="bounce">
+      <img src="gifs/bopping-cat.gif" alt="bop cat" class="bounce">
+      <img src="gifs/smol-cat.webp" alt="Small Cat" class="bounce">
+      <img src="gifs/cat-dancing.webp" alt="Dancing Cat" class="bounce">
+      <img src="gifs/pop-cat.webp" alt="Pop Cat" class="bounce">
+      <img src="gifs/chips-cat.webp" alt="Cat eating chips" class="bounce">
 
-      isScrolling = setTimeout(() => {
-        const iframes = Array.from(container.querySelectorAll('iframe')),
-        index = Math.round(container.scrollTop / container.clientHeight),
-        iframe = iframes[index];
+      <div style="position: absolute; display: flex; justify-content: center; align-items: center; text-align: center; width: 100vw; height: 150vh;">
+        <img src="images/click-here-to-start.png" alt="Tap to start!!" style="cursor: pointer; padding: 10px;" onclick="init()">
+      </div>
+    </div>
+    
+    <div id="iframes">
+      <iframe src="iframes/intro.html" frameborder="0"></iframe>
+      <iframe src="iframes/hobbies.html" frameborder="0"></iframe>
+      <iframe src="iframes/interest-persona.html" frameborder="0"></iframe>
+      <iframe src="iframes/interest-vocaloid.html" frameborder="0"></iframe>
+      <iframe src="iframes/interest-brs.html" frameborder="0"></iframe>
+      <iframe src="iframes/hate.html" frameborder="0"></iframe>
+      <iframe src="iframes/hate-pedo.html" frameborder="0"></iframe>
+      <iframe src="iframes/hate-haircut1.html" frameborder="0"></iframe>
+      <iframe src="iframes/hate-haircut2.html" frameborder="0"></iframe>
+      <iframe src="iframes/ambitions.html" frameborder="0"></iframe>
+      <iframe src="iframes/end.html" frameborder="0"></iframe>
+      <iframe src="iframes/graffiti.html" frameborder="0"></iframe>
+    </div>
+    <script>
+      function init() {
+        const
+        loading = document.getElementById('loading'),
+        iframes = document.getElementById('iframes');
+        
+        loading.style.display = "none";
+        iframes.style.display = "flex";
+      }
+    </script>
+    <script>
+      const container = document.getElementById('iframes');
+      let isScrolling,
+      lastIframe = 0;
 
-        if (iframe && iframe.contentWindow) {
-          if (typeof iframe.contentWindow.startEvent === 'function' && lastIframe !== index) {
-            iframe.contentWindow.startEvent();
+      container.addEventListener('scroll', () => {
+        clearTimeout(isScrolling);
+
+        isScrolling = setTimeout(() => {
+          const iframes = Array.from(container.querySelectorAll('iframe')),
+          index = Math.round(container.scrollTop / container.clientHeight),
+          iframe = iframes[index];
+
+          if (iframe && iframe.contentWindow) {
+            if (typeof iframe.contentWindow.startEvent === 'function' && lastIframe !== index) {
+              iframe.contentWindow.startEvent();
+            }
           }
-        }
-        lastIframe = index;
-      },
-        100);
-    });
-  </script>
-  <script>
-    const element = document.querySelector('#loading img');
-    element.classList.add('.bounce');
-  </script>
-  <script src="js/bounce.js" type="text/javascript" charset="utf-8"></script>
-</body>
+          lastIframe = index;
+        },
+          100);
+      });
+    </script>
+    <script>
+      const element = document.querySelector('#loading img');
+      element.classList.add('.bounce');
+    </script>
+    <script src="js/bounce.js" type="text/javascript" charset="utf-8"></script>
+  </body>
 </html>
