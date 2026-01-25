@@ -14,49 +14,55 @@
       font-family: Serif;
       background-color: black;
       color: white;
-      
+
+      overflow: hidden;
+
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    #hate-pedo {
+      opacity: 0;
+      transition: opacity 4s ease-in-out;
+
       width: 100%;
       height: 100%;
 
       display: flex;
+      flex-direction: column;
+
       justify-content: center;
       align-items: center;
       text-align: center;
-
-      margin: 0;
-      font-size: 1.2em;
     }
 
-    img {
+    #hate-pedo img {
       border: 0.2em solid white;
       padding: 0.4em;
 
       width: 90%;
     }
-    
-    #hate-pedo {
-      opacity: 0;
-      transition: opacity 4s ease-in-out;
-    }
+
   </style>
 </head>
 <body>
-  <audio id='intro' src="../sounds/pedophiles.mp3"></audio>
-  <div id="hate-pedo">
-    <img src="../images/pedophiles.jpeg" alt="Jeffrey Epstein" />
-  <h1>I hate Pedophiles.</h1>
-  <script type="text/javascript" charset="utf-8">
-    function startEvent() {
-      setTimeout(() => {
-        const meme = document.getElementById('hate-pedo');
-        meme.style.opacity = 1;
-      }, 50)
-      
-      const intro = document.getElementById('intro');
-      intro.play();
-    }
-    //startEvent();
-  </script>
+<audio id='intro' src="../sounds/pedophiles.mp3"></audio>
+<div id="hate-pedo">
+  <img src="../images/pedophiles.jpeg" alt="Jeffrey Epstein" />
+<h1>I hate Pedophiles.</h1>
+<script type="text/javascript" charset="utf-8">
+  function startEvent() {
+    setTimeout(() => {
+      const meme = document.getElementById('hate-pedo');
+      meme.style.opacity = 1;
+    }, 50)
+
+    const intro = document.getElementById('intro');
+    intro.play();
+  }
+  //startEvent();
+</script>
 </div>
 </body>
 </html>
