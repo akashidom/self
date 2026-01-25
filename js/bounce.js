@@ -1,43 +1,49 @@
-const bouncers = document.querySelectorAll('.bounce');
+let
+vw = window.innerWidth,
+vh = window.innerHeight;
 
-bouncers.forEach(element => {
-  let
-  x = Math.random() * (innerWidth - element.offsetWidth),
-  y = Math.random() * (innerHeight - element.offsetHeight),
-  speed = Math.ceil(Math.random() * 3) + 1
+window.onload = () => {
+  const bouncers = document.querySelectorAll('.bounce');
 
-  let
-  velocityX = (Math.random() > 0.5 ? 1: -1) * speed,
-  velocityY = (Math.random() > 0.5 ? 1: -1) * speed;
+  bouncers.forEach(element => {
+    let x = Math.random() * (vw - element.width);
+    let y = Math.random() * (vh - element.height);
 
-  // css
-  element.style.position = 'absolute';
-  element.style.willChange = 'transform';
+    let // velocities
+    speed = Math.ceil(Math.random() * 3 + 1),
+    vx = (Math.random() > 0.5 ? 1: -1) * speed,
+    vy = (Math.random() > 0.5 ? 1: -1) * speed;
 
-  function animate() {
-    const
-    wallX = innerWidth - element.offsetWidth,
-    wallY = innerHeight - element.offsetHeight;
+    // css
+    element.style.position = 'absolute';
+    element.style.willChange = 'transform';
 
-    x += velocityX;
-    y += velocityY;
+    function animate() {
+      x += vx;
+      y += vy;
 
-    if (x <= 0 || x >= wallX) {
-      velocityX *= -1;
-      if (element.classList.contains("dance")) {
-        element.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+      if (x <= 0) {
+        vx = Math.abs(vx);
+      } else if (x + element.width >= vw) {
+        vx = -Math.abs(vx);
       }
-    }
-    if (y <= 0 || y >= wallY) {
-      velocityY *= -1;
-      if (element.classList.contains("dance")) {
-        element.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+      if (y <= 0) {
+        vy = Math.abs(vy);
+      } else if (y + element.height >= vh) {
+        vy = -Math.abs(vy);
       }
+
+      element.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(animate);
     }
 
-    element.style.transform = `translate(${x}px, ${y}px)`;
-    requestAnimationFrame(animate);
-  }
+    animate();
+  });
+};
 
-  animate();
-});
+function receiveSize(width, height) {
+  vw = width;
+  vh = height;
+  console.log(vw,
+    vh);
+}

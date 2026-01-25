@@ -13,6 +13,14 @@
       margin: 0;
     }
 
+    #loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
     #loading img {
       width: 60%;
     }
@@ -30,8 +38,9 @@
     }
 
     #iframes iframe {
-      flex: 0 0 100vh;
-      height: 100vh;
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
 
       scroll-snap-align: start;
 
@@ -58,11 +67,11 @@
       <img src="gifs/pop-cat.webp" alt="Pop Cat" class="bounce">
       <img src="gifs/chips-cat.webp" alt="Cat eating chips" class="bounce">
 
-      <div style="position: absolute; display: flex; justify-content: center; align-items: center; text-align: center; width: 100vw; height: 150vh;">
+      <div style="position: absolute; display: flex; justify-content: center; align-items: center; text-align: center; width: 100vw; height: 100vh;">
         <img src="images/click-here-to-start.png" alt="Tap to start!!" style="cursor: pointer; padding: 10px;" onclick="init()">
       </div>
     </div>
-    
+
     <div id="iframes">
       <iframe src="iframes/intro.html" frameborder="0"></iframe>
       <iframe src="iframes/hobbies.html" frameborder="0"></iframe>
@@ -82,7 +91,7 @@
         const
         loading = document.getElementById('loading'),
         iframes = document.getElementById('iframes');
-        
+
         loading.style.display = "none";
         iframes.style.display = "flex";
       }
@@ -111,5 +120,23 @@
       });
     </script>
     <script src="js/bounce.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      const iframes = document.querySelectorAll('iframe');
+
+      function updateSize() {
+        iframes.forEach(iframe => {
+          if (iframe && iframe.contentWindow) {
+            if (typeof iframe.contentWindow.receiveSize === 'function') {
+              iframe.contentWindow.receiveSize(window.innerWidth, window.innerHeight);
+            }
+          }
+        });
+      }
+
+
+      window.addEventListener('resize',
+        updateSize);
+      updateSize();
+    </script>
   </body>
 </html>
