@@ -9,6 +9,10 @@
     body {
       margin: 0;
     }
+    
+    #loading img {
+      width: 60%;
+    }
 
     #iframes {
       display: flex;
@@ -33,6 +37,14 @@
   </style>
 </head>
 <body>
+  <div id="loading">
+    <img src="gifs/nyan-cat.gif" alt="nyancat" class="bounce">
+    <img src="gifs/bopping-cat.gif" alt="" class="bounce">
+    <img src="gifs/smol-cat.webp" alt="" class="bounce">
+    <img src="gifs/cat-dancing.webp" alt="" class="bounce">
+    <img src="gifs/pop-cat.webp" alt="" class="bounce">
+    <img src="gifs/chips-cat.webp" alt="" class="bounce">
+  </div>
   <div id="iframes">
     <iframe src="iframes/intro.html" frameborder="0"></iframe>
     <iframe src="iframes/hobbies.html" frameborder="0"></iframe>
@@ -70,5 +82,10 @@
         100);
     });
   </script>
+  <script>
+    const element = document.querySelector('#loading img');
+    element.classList.add('.bounce');
+  </script>
+  <script src="js/bounce.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
