@@ -5,11 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vocaloid</title>
+  <style type="text/css" media="all">
+    html, body {
+      background-image: url('../gifs/blue-stars.webp');
+      background-repeat: repeat;
+      background-size: 64px auto;
+
+      background-color: black;
+      color: white;
+
+      overflow-x: hidden;
+
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    #title {
+      width: 100%;
+    }
+
+    #interest-vocaloid {
+      position: relative;
+
+      z-index: 1;
+    }
+
+    #bouncies {
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
+  <div id="bouncies">
+    <img src="../gifs/bopping-miku.webp" alt="Bopping Miku" class="bounce">
+    <img src="../gifs/pet-miku.webp" alt="Pet Miku" class="bounce">
+    <img src="../gifs/pet-teto.webp" alt="Pet Teto" class="bounce">
+  </div>
+  <script src="../js/bounce.js" type="text/javascript" charset="utf-8"></script>
   <div id="interest-vocaloid">
     <h3>My interests #2</h3>
-    <h1>Vocaloid & Proseka!!</h1>
+    <img src="../images/vocaloid.png" alt="Vocaloid" id="title">
     <p>
       I love listening to Hatsune Miku and Kasane Teto!
     </p>
@@ -19,6 +55,8 @@
     <p>
       <sub>Let me know if you listen to vocaloid too</sub>
     </p>
+    <img src="../images/teto-said.webp" alt="Teto said" style="width: 50%;">
+    <img src="../images/pear-teto.webp" alt="">
   </div>
 </body>
 </html>
