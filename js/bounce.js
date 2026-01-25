@@ -2,7 +2,7 @@ let
 vw = window.innerWidth,
 vh = window.innerHeight;
 
-window.onload = () => {
+window.addEventListener('load', () => {
   const bouncers = document.querySelectorAll('.bounce');
 
   bouncers.forEach(element => {
@@ -39,7 +39,7 @@ window.onload = () => {
 
     animate();
   });
-};
+});
 
 function receiveSize(width, height) {
   vw = width;

@@ -136,7 +136,10 @@
 
       window.addEventListener('resize',
         updateSize);
-      updateSize();
+      window.addEventListener('load',
+        () => {
+          updateSize();
+        });
     </script>
   </body>
 </html>
