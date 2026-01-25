@@ -44,6 +44,4 @@ window.addEventListener('load', () => {
 function receiveSize(width, height) {
   vw = width;
   vh = height;
-  console.log(vw,
-    vh);
 }
