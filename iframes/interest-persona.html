@@ -5,21 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Persona</title>
+  <style>
+    @font-face {
+      font-family: "Menu Font";
+      src: url("../fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      font-family: monospace, sans-serif;
+    }
+
+    html, body {
+      background-image: url('../gifs/persona-bg.gif');
+      background-size: cover;
+
+      background-color: black;
+      color: white;
+
+      overflow: hidden;
+
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    img#hover1 {
+      position: fixed;
+      top: 10%;
+      right: 10%;
+      float: right;
+
+      width: 30%;
+      border-radius: 5px 0px 0px 30px;
+    }
+
+
+    img#hover2 {
+      position: fixed;
+      bottom: 0%;
+      right: 0%;
+
+      width: 20%;
+
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translate(1px, 1px) rotate(0deg);
+      }
+      10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+      }
+      20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+      }
+      30% {
+        transform: translate(3px, 2px) rotate(0deg);
+      }
+      40% {
+        transform: translate(1px, -1px) rotate(1deg);
+      }
+      50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+      }
+      60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+      }
+      70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+      }
+      80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+      }
+      90% {
+        transform: translate(1px, 2px) rotate(0deg);
+      }
+      100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+      }
+    }
+
+    #logo {
+      width: 40vw;
+    }
+
+    #interest-persona {
+      width: 100%;
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #left {
+      flex-direction: column;
+    }
+
+    #right {
+      flex-direction: column;
+      background-color: black;
+    }
+  </style>
 </head>
 <body>
+  <img src="../images/joker.jpg" alt="Joker" id="hover1">
+  <img src="../images/mona.png" alt="Mona" id="hover2">
+  <h3 style="font-family: 'Menu Font';">My interests #1</h3>
   <div id="interest-persona">
-    <h3>My interests #1</h3>
-    <h1>Persona 3</h1>
-    <p>
-      Persona holds a special place in my heart as it's one of <b>my favorite game</b> series
-    </p>
-    <p>
-      The game explore a theme about being a highschooler and death.
-    </p>
-
-    <p>
-      I love Aigis and how Makoto Yuki, the main character looks!
-    </p>
+    <div id="left">
+      <img src="../images/persona-5.png" alt="Persona 5" id="logo">
+    </div>
+    <div id="right">
+      <p>
+        Persona holds a special place in my heart as it's one of <b>my favorite game</b> series.
+      </p>
+      <p>
+        The game centers around free will and rebellion against rude adults.
+      </p>
+    </div>
   </div>
 
 </body>
